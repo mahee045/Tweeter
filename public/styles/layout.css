@@ -20,8 +20,18 @@ html {
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   padding-top: 120px
+
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main.container {
+  width: 90%; 
+  background-color: cornsilk; 
+  padding: 140px; 
+  text-align: center;
+  align-items: center;
+  justify-content: center
+}

@@ -8,8 +8,8 @@ header {
   flex-direction: column; 
   align-items: center; 
   justify-content: center; 
-  padding: 200px 0; 
   box-sizing: border-box; 
+  padding: 200px 0;
 }
 
 /* Avatar Container */
