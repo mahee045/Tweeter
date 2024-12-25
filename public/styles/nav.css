@@ -1,49 +1,44 @@
-
-
 nav {
+  position: fixed;
   height: 120px; 
   width: 100vw; 
   background-color: #4056A1; 
   color: #FFFFFF; 
   padding: 0 1.5em; 
   box-sizing: border-box; 
-  box-sizing: border-box; /* Include padding in total width/height */
-  display: flex; /* Enable flexbox */
-  align-items: center; /* Vertically center content */
+  display: flex; 
+  align-items: center; 
   justify-content: space-between; 
 }
 
 /* Styling for <span> inside <nav> */
 nav span {
   font-family: 'Bungee'; 
-  font-size: 2em; /* Adjust the font size here */
+  font-size: 2em; 
 }
 
-/* Write a new tweet text and icon */
 /* Write a new tweet text and icon */
 nav .write-tweet {
   text-align: center;
   display: flex;
-  flex-direction: column; /* Stack text and icon vertically */
+  flex-direction: column; 
   align-items: center;
   font-size: 1em;
-  gap: 5px; /* Space between text and icon */
 }
 
 /* Wrap the text in a single line */
 .write-tweet .tweet-text {
-  display: inline; /* Keep text on one line */
-  white-space: nowrap; /* Prevent line break */
-  font-size: 1em;
+  display: inline; 
+  white-space: nowrap; 
 }
 
 /* Bold "Write" only */
 .write-tweet .tweet-text strong {
-  font-weight: bold; /* Bold "Write" */
+  font-weight: bold; 
 }
 
 /* Style the icon */
 .write-tweet i {
-  margin-top: 5px; /* Space between text and icon */
-  font-size: 1.2em; /* Adjust icon size */
+  margin-top: 5px; 
+  font-size: 1.2em; 
 }
