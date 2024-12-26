@@ -10,6 +10,11 @@
   text-align: center;
 }
 
+/* Counter Exceeded Style */
+.new-tweet .counter-exceeded {
+  color: red !important;
+}
+
 /* Form Label */
 .new-tweet label {
   font-size: 1.2em;
@@ -31,6 +36,7 @@
   resize: none;
   outline: none;
 }
+
 
 /* Form Div (Button + Counter) */
 .new-tweet div {
