@@ -17,7 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
 
     <!-- FONTS: Bungee and Source Sans-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,11 @@
     
     <!--Header CSS-->
     <link rel="stylesheet" href="styles/header.css">
+
+    <!--New Tweet CSS-->
+    <link rel="stylesheet" href="styles/new-tweet.css">
+
+
   
   </head>
 
@@ -46,7 +51,7 @@
 
   <header>
     <div>
-      <img src="/images/profile-hex.png">
+      <img src="images/profile-hex.png">
     </div>
     <br>
     <div>
@@ -59,10 +64,18 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-    <h1>all about me, i am very very very very cooooooollllllllll, loooook atttt meeeeeee, righttt nowww</h1>
-    <p>im cool</p>
-    <p>im really cool</p>
-
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+  
     </main>
   </body>
 </html>
