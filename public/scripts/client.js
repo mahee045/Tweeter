@@ -64,3 +64,55 @@ const createTweetElement = function(tweet) {
 };
 
 renderTweets(data);
+
+//Event listener
+$(function () {
+  console.log('✅ Client-side JS is loaded and ready to go!');
+
+  // Event listener for form submission
+  $('.new-tweet form').on('submit', function (event) {
+    event.preventDefault(); // Prevent default page reload
+
+    //Serialize the form data
+    const formData = $(this).serialize(); // Converts form data to a query string
+
+    console.log('📝 Serialized Form Data:', formData);
+
+    // Send an AJAX POST request
+    $.ajax({
+      type: 'POST', 
+      url: '/tweets', 
+      data: formData, 
+      success: function (response) {
+        console.log('✅ Tweet successfully posted!', response);
+
+        // Clear the form after submission
+        $('#tweet-text').val('');
+        $('.counter').text(140); // Reset character counter
+
+        // Optionally, fetch and re-render the tweets
+        loadTweets();
+      },
+      error: function (error) {
+        console.error('❌ Error posting tweet:', error);
+      }
+    });
+  });
+
+  // Function to fetch and render tweets (optional for this step)
+  const loadTweets = function () {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets',
+      success: function (tweets) {
+        console.log('✅ Tweets fetched successfully:', tweets);
+        renderTweets(tweets); 
+      },
+      error: function (error) {
+        console.error('❌ Error fetching tweets:', error);
+      }
+    });
+  };
+});
+
+
