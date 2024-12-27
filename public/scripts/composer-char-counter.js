@@ -1,6 +1,4 @@
-
-
-$(document).ready(function() {
+$(function () {
   console.log("✅ composer-char-counter.js is successfully loaded!");
 
   // Select the textarea
@@ -8,7 +6,7 @@ $(document).ready(function() {
   const maxChars = 140; // Character limit
 
   // Register the input event
-  $textarea.on('input', function() {
+  $textarea.on('input', function () {
     const currentLength = $(this).val().length; // Get the length of textarea value
     const remainingChars = maxChars - currentLength; // Calculate remaining characters
 

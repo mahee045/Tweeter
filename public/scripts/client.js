@@ -1,18 +1,15 @@
-
-
-// Function to render multiple tweets
-const renderTweets = function(tweets) {
+// Function to Render Multiple Tweets
+const renderTweets = function (tweets) {
   const $container = $('.tweets-container'); // Ensure this selector matches the one in your HTML
   $container.empty(); // Optional: Clear existing tweets first
-  tweets.forEach(tweet => {
+  tweets.forEach((tweet) => {
     const $tweetElement = createTweetElement(tweet);
-    $container.prepend($tweetElement);
+    $container.prepend($tweetElement); // Add the newest tweet at the top
   });
-}
+};
 
-
-// Function to create a tweet element
-const createTweetElement = function(tweet) {
+//  Function to Create a Single Tweet Element
+const createTweetElement = function (tweet) {
   const $tweet = $(`
     <article class="tweet">
       <header>
@@ -36,59 +33,71 @@ const createTweetElement = function(tweet) {
     </article>
   `);
 
-  return $tweet; // Return the tweet element
+  return $tweet;
 };
-
-
-
-//Event listener
+// Event Listener and Core Logic
 $(function () {
   console.log('✅ Client-side JS is loaded and ready to go!');
 
-  // Event listener for form submission
+  // Event Listener for Form Submission
   $('.new-tweet form').on('submit', function (event) {
     event.preventDefault(); // Prevent default page reload
 
-    //Serialize the form data
-    const formData = $(this).serialize(); // Converts form data to a query string
+    // Grab and validate the tweet text
+    const $tweetText = $('#tweet-text').val().trim();
+
+    // Validation for Empty Tweet
+    if ($tweetText === '') {
+      alert('⚠️ Tweet cannot be empty!');
+      return;
+    }
+
+    // Validation for Tweet Length
+    if ($tweetText.length > 140) {
+      alert('⚠️ Tweet exceeds 140 characters!');
+      return;
+    }
+
+    // Serialize the form data
+    const formData = $(this).serialize();
 
     console.log('📝 Serialized Form Data:', formData);
 
-    // Send an AJAX POST request
+    // AJAX POST Request to Submit a Tweet
     $.ajax({
-      type: 'POST', 
-      url: '/tweets', 
-      data: formData, 
-      success: function (response) {
-        console.log('✅ Tweet successfully posted!', response);
-
-        // Clear the form after submission
-        $('#tweet-text').val('');
-        $('.counter').text(140); // Reset character counter
-
-        // Optionally, fetch and re-render the tweets
+      type: 'POST',
+      url: '/tweets',
+      data: formData,
+      success: function () {
+        console.log('✅ Tweet successfully posted!');
+        
+        // Reload tweets dynamically without clearing the form
         loadTweets();
       },
       error: function (error) {
         console.error('❌ Error posting tweet:', error);
+        alert('🚨 Failed to post the tweet. Please try again later.');
       }
     });
   });
 
-  // Function to fetch and render tweets (optional for this step)
+  // Function to Fetch and Render Tweets Dynamically
   const loadTweets = function () {
     $.ajax({
       type: 'GET',
       url: '/tweets',
+      dataType: 'json',
       success: function (tweets) {
         console.log('✅ Tweets fetched successfully:', tweets);
-        renderTweets(tweets); 
+        renderTweets(tweets);
       },
       error: function (error) {
         console.error('❌ Error fetching tweets:', error);
+        alert('🚨 Failed to fetch tweets. Please try again later.');
       }
     });
   };
+
+  // Initial Load of Tweets on Page Load
+  loadTweets();
 });
-
-
