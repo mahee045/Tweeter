@@ -1,0 +1,110 @@
+/* Container for all tweets */
+.tweets-container {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Individual Tweet */
+article.tweet {
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #fdfcfb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Tweet Header */
+article.tweet header {
+  display: flex;
+  justify-content: space-between; /* Ensures items are spaced out */
+  align-items: flex-start; /* Centers items vertically */
+  margin-bottom: 5px; /* Reduce space below the header */
+  padding: 2px 0; /* Reduce internal padding */
+}
+
+
+/* User Information in Header */
+article.tweet header .tweet-user {
+  display: flex;
+  align-items: flex-start; /* Aligns avatar and name on the same line */
+  gap: 10px; /* Space between avatar and name */
+}
+
+article.tweet header .tweet-handle {
+  color: #888;
+  font-size: 0.9em;
+  position: relative;
+  top: -39px;
+  left:450px;
+}
+
+
+article.tweet header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+article.tweet header .tweet-name {
+  font-weight: bold;
+}
+
+/* Tweet Content */
+article.tweet p {
+  font-size: 1em;
+  margin: 10px 0;
+  color: #333;
+}
+
+/* Tweet Footer */
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  font-size: 0.9em;
+  color: #888;
+}
+
+/*shadow box on container */
+
+.tweets-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 2);
+  transform: scale(1.02); /* Slight zoom effect */
+}
+/* Timestamp */
+article.tweet footer span {
+  font-style: italic;
+}
+
+/* Action Icons */
+article.tweet footer div {
+  display: flex;
+  gap: 10px;
+}
+
+article.tweet footer div i {
+  cursor: pointer;
+}
+
+article.tweet footer div i:hover {
+  color: #0057ff;
+}
+
+/*solving inherit header background issue
+/* Remove Unwanted Background */
+article.tweet header {
+  background: none;
+}
+
+/* Ensure User Section Doesn’t Have Unintended Background */
+article.tweet header .tweet-user {
+  background: none;
+}
