@@ -30,7 +30,7 @@ article.tweet header {
 
 
 /* User Information in Header */
-article.tweet header .tweet-user {
+article.tweet header .tweet-user  {
   display: flex;
   align-items: flex-start; /* Aligns avatar and name on the same line */
   gap: 10px; /* Space between avatar and name */
@@ -39,9 +39,8 @@ article.tweet header .tweet-user {
 article.tweet header .tweet-handle {
   color: #888;
   font-size: 0.9em;
-  position: relative;
-  top: -39px;
-  left:450px;
+  display:flex;
+  margin-left: 300px;
 }
 
 
@@ -75,7 +74,7 @@ article.tweet footer {
 
 /*shadow box on container */
 
-.tweets-container:hover {
+article.tweet:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 2);
   transform: scale(1.02); /* Slight zoom effect */
 }
