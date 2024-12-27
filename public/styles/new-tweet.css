@@ -69,3 +69,43 @@
   color: #000;
   text-align: right;
 }
+
+/* Error Message Container */
+.tweet-error {
+  display: none; /* Hidden by default */
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffe4e4; 
+  color: #a94442;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Error Icon Styling */
+.tweet-error i {
+  color: #a94442;
+  font-size: 1.2em;
+}
+
+/* Smooth Slide Animation */
+.tweet-error.show {
+  display: flex;
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

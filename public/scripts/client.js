@@ -1,3 +1,6 @@
+//define max word limit
+const maxChars = 140;
+
 // Function to Render Multiple Tweets
 const renderTweets = function (tweets) {
   const $container = $('.tweets-container'); // Ensure this selector matches the one in your HTML
@@ -45,36 +48,59 @@ const createTweetElement = function (tweet) {
   return $tweet;
 };
 
-//Error Handling
-// ✅ Function to Validate Tweet Text
+//140 limit and empty tweet validation 
 const isTweetValid = function (tweetText) {
   if (tweetText.trim() === '') {
-    alert('⚠️ Tweet cannot be empty!');
+    showError(' Tweet cannot be empty!');
     return false;
   }
 
-  if (tweetText.length > 140) {
-    alert('⚠️ Tweet exceeds 140 characters!');
+  if (tweetText.length > maxChars) {
+    showError(` Tweet exceeds ${maxChars} characters!`);
     return false;
   }
 
   return true;
 };
 
-// Event Listener and Core Logic
+
+// Function to Display Validation Errors
+const showError = function (message) {
+  const $errorContainer = $('.tweet-error');
+  const $errorMessage = $errorContainer.find('.error-message');
+
+  $errorMessage.text(message); // Set the error message
+  $errorContainer.slideDown(); // Animate the error container into view
+};
+
+// Function to Hide Validation Errors
+const hideError = function () {
+  $('.tweet-error').slideUp(); // Animate the error container out of view
+};
+
+// Event Listener for Form Submission
 $(function () {
   console.log('✅ Client-side JS is loaded and ready to go!');
 
-  // Event Listener for Form Submission
   $('.new-tweet form').on('submit', function (event) {
     event.preventDefault(); // Prevent default page reload
 
-    // Grab the tweet text
-    const $tweetText = $('#tweet-text').val();
+    // Hide previous errors before validation
+    hideError();
 
-    // Validate the tweet using the isTweetValid function
-    if (!isTweetValid($tweetText)) {
-      return; // Stop submission if validation fails
+    // Grab and validate the tweet text
+    const $tweetText = $('#tweet-text').val().trim();
+
+    // Validation for Empty Tweet
+    if ($tweetText === '') {
+      showError(' Tweet cannot be empty!');
+      return;
+    }
+
+    // Validation for Tweet Length
+    if ($tweetText.length > maxChars) {
+      showError(' Tweet exceeds 140 characters!');
+      return;
     }
 
     // Serialize the form data
@@ -90,16 +116,19 @@ $(function () {
       success: function () {
         console.log('✅ Tweet successfully posted!');
         
-        // Clear textarea and reset counter after successful submission
+        // Clear textarea and reset counter dynamically
         $('#tweet-text').val('');
-        $('.counter').text('140');
+        $('.counter').text(maxChars);
+
+        // Hide error messages if any are visible
+        hideError();
 
         // Reload tweets dynamically
         loadTweets();
       },
       error: function (error) {
         console.error('❌ Error posting tweet:', error);
-        alert('🚨 Failed to post the tweet. Please try again later.');
+        showError('🚨 Failed to post the tweet. Please try again later.');
       }
     });
   });
@@ -116,7 +145,7 @@ $(function () {
       },
       error: function (error) {
         console.error('❌ Error fetching tweets:', error);
-        alert('🚨 Failed to fetch tweets. Please try again later.');
+        showError('🚨 Failed to fetch tweets. Please try again later.');
       }
     });
   };
