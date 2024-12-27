@@ -9,19 +9,17 @@ const renderTweets = function (tweets) {
 };
 
 //  Function to Create a Single Tweet Element
+// Function to Create a Tweet Element
 const createTweetElement = function (tweet) {
   const $tweet = $(`
     <article class="tweet">
       <header>
         <div class="tweet-user">
           <img src="${tweet.user.avatars}" alt="User Avatar">
-          <div class="tweet-user-info">
-            <span class="tweet-name">${tweet.user.name}</span>
-            <span class="tweet-handle">${tweet.user.handle}</span>
-          </div>
+          <div class="tweet-user-info"></div>
         </div>
       </header>
-      <p>${tweet.content.text}</p>
+      <div class="tweet-content"></div>
       <footer>
         <span>${timeago.format(tweet.created_at)}</span>
         <div>
@@ -32,6 +30,17 @@ const createTweetElement = function (tweet) {
       </footer>
     </article>
   `);
+
+  // Securely append user name and handle
+  $tweet.find('.tweet-user-info').append(
+    $('<span>').addClass('tweet-name').text(tweet.user.name),
+    $('<span>').addClass('tweet-handle').text(tweet.user.handle)
+  );
+
+  // Securely set tweet content
+  $tweet.find('.tweet-content').append(
+    $('<p>').text(tweet.content.text)
+  );
 
   return $tweet;
 };
