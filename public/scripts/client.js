@@ -35,6 +35,23 @@ const createTweetElement = function (tweet) {
 
   return $tweet;
 };
+
+//Error Handling
+// ✅ Function to Validate Tweet Text
+const isTweetValid = function (tweetText) {
+  if (tweetText.trim() === '') {
+    alert('⚠️ Tweet cannot be empty!');
+    return false;
+  }
+
+  if (tweetText.length > 140) {
+    alert('⚠️ Tweet exceeds 140 characters!');
+    return false;
+  }
+
+  return true;
+};
+
 // Event Listener and Core Logic
 $(function () {
   console.log('✅ Client-side JS is loaded and ready to go!');
@@ -43,19 +60,12 @@ $(function () {
   $('.new-tweet form').on('submit', function (event) {
     event.preventDefault(); // Prevent default page reload
 
-    // Grab and validate the tweet text
-    const $tweetText = $('#tweet-text').val().trim();
+    // Grab the tweet text
+    const $tweetText = $('#tweet-text').val();
 
-    // Validation for Empty Tweet
-    if ($tweetText === '') {
-      alert('⚠️ Tweet cannot be empty!');
-      return;
-    }
-
-    // Validation for Tweet Length
-    if ($tweetText.length > 140) {
-      alert('⚠️ Tweet exceeds 140 characters!');
-      return;
+    // Validate the tweet using the isTweetValid function
+    if (!isTweetValid($tweetText)) {
+      return; // Stop submission if validation fails
     }
 
     // Serialize the form data
@@ -71,7 +81,11 @@ $(function () {
       success: function () {
         console.log('✅ Tweet successfully posted!');
         
-        // Reload tweets dynamically without clearing the form
+        // Clear textarea and reset counter after successful submission
+        $('#tweet-text').val('');
+        $('.counter').text('140');
+
+        // Reload tweets dynamically
         loadTweets();
       },
       error: function (error) {
