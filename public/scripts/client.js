@@ -30,7 +30,7 @@ const renderTweets = function(tweets) {
   $container.empty(); // Optional: Clear existing tweets first
   tweets.forEach(tweet => {
     const $tweetElement = createTweetElement(tweet);
-    $container.append($tweetElement);
+    $container.prepend($tweetElement);
   });
 }
 
