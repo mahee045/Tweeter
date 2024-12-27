@@ -39,8 +39,9 @@ article.tweet header .tweet-user  {
 article.tweet header .tweet-handle {
   color: #888;
   font-size: 0.9em;
-  display:flex;
-  margin-left: 300px;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 200px;
 }
 
 
@@ -75,7 +76,7 @@ article.tweet footer {
 /*shadow box on container */
 
 article.tweet:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .9);
   transform: scale(1.02); /* Slight zoom effect */
 }
 /* Timestamp */
