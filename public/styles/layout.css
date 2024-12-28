@@ -33,3 +33,38 @@ html {
   padding: 90px; 
   margin: 0 auto;
 }
+
+/* Default styles are for mobile-first design */
+
+@media (min-width: 1024px) {
+  main.container {
+    display: flex; /* Flexbox for side-by-side setup */
+    justify-content: space-between; /* Space out the sections */
+    max-width: 1200px;
+    margin: 0 auto; /* Center your layout */
+  }
+
+  /* assuming main.container wraps these elements directly */
+  new-tweet, tweets-container {
+    display: block; /* Default block display for stacking */
+    width: 100%; /* Full width inside the column */
+  }
+
+  .tweets-wrapper { /* Add a new wrapper if not present */
+    display: flex;
+    flex-direction: column; /* Stack new-tweet and tweets-container */
+    max-width: 700px; /* Adjust based on your preference */
+    width: 100%; /* Use full width available */
+    margin-right: 20px; /* Space from the header */
+  }
+
+  header {
+    display: flex;
+    flex-direction: column; /* Header items in column if needed */
+    align-items: center; /* Center content horizontally */
+    border: 1px solid #ccc; /* Define a border for the header */
+    padding: 10px; /* Add inner padding */
+    max-width: 400px; /* Constrain desired max width */
+    box-sizing: border-box;
+  }
+}
