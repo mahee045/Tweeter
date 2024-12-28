@@ -3,8 +3,10 @@
 
 Tweeter is a simple, single-page Twitter clone built using HTML, CSS, JavaScript, jQuery, and AJAX. It provides users with a responsive and interactive platform to compose and share short tweets in real time. The project focuses on implementing front-end interactivity, form validation, and dynamic rendering of tweets while maintaining a clean, responsive design for both desktop and tablet views.
 
-![A snapshot of entering text in the tweet box](docs/snapshot.png)
-![A snapshot of entering a tweet just posted](docs/tweet-posted.png)
+## Screenshots
+![A snapshot of entering text in the tweet box](https://github.com/mahee045/Tweeter/blob/master/docs/snapshot.png)
+![A snapshot of entering a tweet just posted](https://github.com/mahee045/Tweeter/blob/master/docs/tweet-posted.png)
+![A snapshot of a desktop view zoomed out.](https://github.com/mahee045/Tweeter/blob/master/docs/tweet-posted.png)
 
 ## Getting Started
 
