@@ -22,18 +22,18 @@ article.tweet {
 /* Tweet Header */
 article.tweet header {
   display: flex;
-  justify-content: space-between; /* Ensures items are spaced out */
-  align-items: flex-start; /* Centers items vertically */
-  margin-bottom: 5px; /* Reduce space below the header */
-  padding: 2px 0; /* Reduce internal padding */
+  justify-content: space-between; 
+  align-items: flex-start; 
+  margin-bottom: 5px; 
+  padding: 2px 0; 
 }
 
 
 /* User Information in Header */
 article.tweet header .tweet-user  {
   display: flex;
-  align-items: flex-start; /* Aligns avatar and name on the same line */
-  gap: 10px; /* Space between avatar and name */
+  align-items: flex-start; 
+  gap: 10px; 
   margin: 0; 
 }
 
@@ -107,7 +107,7 @@ article.tweet header {
   background: none;
 }
 
-/* Ensure User Section Doesn’t Have Unintended Background */
+/* Section Doesn’t Have Unintended Background */
 article.tweet header .tweet-user {
   background: none;
 }

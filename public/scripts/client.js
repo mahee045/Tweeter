@@ -3,15 +3,15 @@ const maxChars = 140;
 
 // Function to Render Multiple Tweets
 const renderTweets = function (tweets) {
-  const $container = $('.tweets-container'); // Ensure this selector matches the one in your HTML
-  $container.empty(); // Optional: Clear existing tweets first
+  const $container = $('.tweets-container'); 
+  $container.empty(); // Clear existing tweets first
   tweets.forEach((tweet) => {
     const $tweetElement = createTweetElement(tweet);
     $container.prepend($tweetElement); // Add the newest tweet at the top
   });
 };
 
-//  Function to Create a Single Tweet Element
+
 // Function to Create a Tweet Element
 const createTweetElement = function (tweet) {
   const $tweet = $(`
@@ -80,7 +80,7 @@ const hideError = function () {
 
 // Event Listener for Form Submission
 $(function () {
-  console.log('✅ Client-side JS is loaded and ready to go!');
+  //console.log(' Client-side is ready to go!');
 
   $('.new-tweet form').on('submit', function (event) {
     event.preventDefault(); // Prevent default page reload
@@ -106,7 +106,7 @@ $(function () {
     // Serialize the form data
     const formData = $(this).serialize();
 
-    console.log('📝 Serialized Form Data:', formData);
+    //console.log('Serialized Form Data:', formData);
 
     // AJAX POST Request to Submit a Tweet
     $.ajax({
@@ -114,7 +114,7 @@ $(function () {
       url: '/tweets',
       data: formData,
       success: function () {
-        console.log('✅ Tweet successfully posted!');
+        //console.log(' Tweet successfully posted!');
         
         // Clear textarea and reset counter dynamically
         $('#tweet-text').val('');
@@ -127,8 +127,8 @@ $(function () {
         loadTweets();
       },
       error: function (error) {
-        console.error('❌ Error posting tweet:', error);
-        showError('🚨 Failed to post the tweet. Please try again later.');
+        //console.error(' Error posting tweet:', error);
+        showError(' Failed to post the tweet. Please try again later.');
       }
     });
   });
@@ -140,12 +140,12 @@ $(function () {
       url: '/tweets',
       dataType: 'json',
       success: function (tweets) {
-        console.log('✅ Tweets fetched successfully:', tweets);
+        //console.log(' Tweets fetched successfully:', tweets);
         renderTweets(tweets);
       },
       error: function (error) {
-        console.error('❌ Error fetching tweets:', error);
-        showError('🚨 Failed to fetch tweets. Please try again later.');
+        //console.error(' Error fetching tweets:', error);
+        showError(' Failed to fetch tweets. Please try again later.');
       }
     });
   };

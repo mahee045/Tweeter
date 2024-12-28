@@ -10,16 +10,16 @@ nav {
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
-  z-index: 1000; /* High z-index to ensure it's always on top */
+  z-index: 1000; /* High z-index to ensure it's always on top fix the header moving on top of the nav bar after making it dynamic*/
 }
 
-/* Styling for <span> inside <nav> */
+
 nav span {
   font-family: 'Bungee'; 
   font-size: 2em; 
 }
 
-/* Write a new tweet text and icon */
+
 nav .write-tweet {
   text-align: center;
   display: flex;
@@ -28,7 +28,7 @@ nav .write-tweet {
   font-size: 1em;
 }
 
-/* Wrap the text in a single line */
+
 .write-tweet .tweet-text {
   display: inline; 
   white-space: nowrap; 
@@ -39,7 +39,7 @@ nav .write-tweet {
   font-weight: bold; 
 }
 
-/* Style the icon */
+
 .write-tweet i {
   margin-top: 5px; 
   font-size: 1.2em; 
