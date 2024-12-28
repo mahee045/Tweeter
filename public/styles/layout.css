@@ -36,35 +36,98 @@ html {
 
 /* Default styles are for mobile-first design */
 
+/* layout.css */
+
+/* Default mobile-first design (already present) */
+main.container {
+  width: 90%;
+  background-color: inherit;
+  padding: 90px;
+  margin: 0 auto;
+}
+
+/* Desktop screens - 1024px and above */
+/* layout.css */
+
+/* Desktop screens - 1024px and above */
 @media (min-width: 1024px) {
-  main.container {
-    display: flex; /* Flexbox for side-by-side setup */
-    justify-content: space-between; /* Space out the sections */
-    max-width: 1200px;
-    margin: 0 auto; /* Center your layout */
-  }
-
-  /* assuming main.container wraps these elements directly */
-  new-tweet, tweets-container {
-    display: block; /* Default block display for stacking */
-    width: 100%; /* Full width inside the column */
-  }
-
-  .tweets-wrapper { /* Add a new wrapper if not present */
+  body {
     display: flex;
-    flex-direction: column; /* Stack new-tweet and tweets-container */
-    max-width: 700px; /* Adjust based on your preference */
-    width: 100%; /* Use full width available */
-    margin-right: 20px; /* Space from the header */
+    flex-direction: row;
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align content from the top */
+    gap: 30px; /* Add spacing between header and main content */
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header Styles */
+  header {
+    width: 30%; /* Header takes up 30% of the space */
+    background-color: #F0DB4F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Vertically center content */
+    text-align: center;
+    padding: 50px;
+    height: auto; /* Dynamic height based on content */
+    position: relative; /* Prevent sticky behavior */
+    margin-top: 100px; /* Space from the top navigation bar */
+    border-radius: 8px; /* Add slight rounded corners */
+  }
+
+  /* Main Container */
+  main.container {
+    width: 60%; /* Main container takes up the remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .new-tweet {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .tweets-container {
+    width: 100%;
+    overflow-y: auto;
+  }
+}
+
+/* Tablet screens - 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  main.container {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center align content */
+    gap: 20px; /* Space between sections */
+    margin-top: 120px; /* Space below navbar */
+  }
+
+  .new-tweet {
+    width: 80%; /* Slightly wider for tablet screens */
+    max-width: 600px; /* Prevent it from becoming too wide */
+  }
+
+  .tweets-container {
+    width: 80%; /* Match the new-tweet width */
+    max-width: 300px;
   }
 
   header {
-    display: flex;
-    flex-direction: column; /* Header items in column if needed */
-    align-items: center; /* Center content horizontally */
-    border: 1px solid #ccc; /* Define a border for the header */
-    padding: 10px; /* Add inner padding */
-    max-width: 400px; /* Constrain desired max width */
-    box-sizing: border-box;
+    margin-top: 120px; /* Push header below fixed navbar */
+    text-align: center; /* Center the header content */
+  }
+
+  header img {
+    width: 100px; /* Slightly smaller avatar */
+    height: 100px;
+  }
+
+  header h2 {
+    font-size: 1.2em; /* Adjust header text size */
   }
 }
+

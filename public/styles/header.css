@@ -10,6 +10,7 @@ header {
   justify-content: center; 
   box-sizing: border-box; 
   padding: 200px 0;
+  
 }
 
 /* Avatar Container */
@@ -32,5 +33,37 @@ header h2 {
   font-size: 1.5em; 
   font-weight: bold; 
   color: #333; 
+}
+
+
+
+/* Desktop Adjustments */
+@media (min-width: 1024px) {
+  header {
+    width: 30%;
+    background-color: #F0DB4F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px;
+    height: auto;
+    margin-top: 100px; /* Match layout.css */
+    border-radius: 8px;
+  }
+
+  header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+
+  header h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+  }
 }
 

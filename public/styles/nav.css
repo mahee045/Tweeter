@@ -10,6 +10,7 @@ nav {
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
+  z-index: 1000; /* High z-index to ensure it's always on top */
 }
 
 /* Styling for <span> inside <nav> */
