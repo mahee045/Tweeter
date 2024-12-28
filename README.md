@@ -6,7 +6,7 @@ Tweeter is a simple, single-page Twitter clone built using HTML, CSS, JavaScript
 ## Screenshots
 ![A snapshot of entering text in the tweet box](https://github.com/mahee045/Tweeter/blob/master/docs/snapshot.png)
 ![A snapshot of entering a tweet just posted](https://github.com/mahee045/Tweeter/blob/master/docs/tweet-posted.png)
-![A snapshot of a desktop view zoomed out.](https://github.com/mahee045/Tweeter/blob/master/docs/tweet-posted.png)
+![A snapshot of a desktop view zoomed out.](https://github.com/mahee045/Tweeter/blob/master/docs/desktop%20view.png)
 
 ## Getting Started
 
